@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class seat extends Model
 {
     use HasFactory;
+    protected $fillable = ['id','cpu','gpu','ram'];
 }
