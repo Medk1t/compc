@@ -8,9 +8,9 @@ class clientController extends Controller
 {
     public function index()
     {
-        $order = orderResources::collection(order::all());
+        $client = clientResources::collection(client::all());
 
-        return $order;
+        return $client;
     }
 
     public function create()
@@ -23,18 +23,18 @@ class clientController extends Controller
         //
     }
 
-    public function update(Request $request, order $order)
+    public function update(Request $request, client $client)
     {
         if($request->id==null)
         {
-            $order = new order;
+            $client = new client;
         
-            $order->date;
-            $order->client_id;
-            $order->price;
-            $order->seat_id;
+            $client->date;
+            $client->client_id;
+            $client->price;
+            $client->seat_id;
         
-            $order->save();
+            $client->save();
             return true;
         }
         
@@ -44,26 +44,26 @@ class clientController extends Controller
     {
         if ($request->id == null)
         {
-            $order = new order;
-            $order->date;
-            $order->client;
-            $order->price;
-            $order->seat_id;
+            $client = new client;
+            $client->date;
+            $client->client;
+            $client->price;
+            $client->seat_id;
             
-            $order->save();
-            return $order;
+            $client->save();
+            return $client;
         }
     }
 
     public function show($id)
     {
-        $order = order::find($id);
+        $client = client::find($id);
         return $sellers;
     }
 
     public function destroy($id)
     {
-        order::destroy($id);
+        client::destroy($id);
         return true;
     }
 }
