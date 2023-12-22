@@ -6,18 +6,64 @@ use Illuminate\Http\Request;
 
 class orderController extends Controller
 {
-    public function index;
-    public store
-    public function update(Request $request)
+    public function index()
     {
-        $order = Event::find($request->id);
+        $order = orderResources::collection(order::all());
+
+        return $order;
+    }
+
+    public function create()
+    {
+        //
+    }
+
+    public function edit(Seller $seller)
+    {
+        //
+    }
+
+    public function update(Request $request, order $order)
+    {
+        if($request->id==null)
+        {
+            $order = new order;
         
-        $order->date;
-        $order->client_id;
-        $order->price;
-        $order->seat_id;
+            $order->date;
+            $order->client_id;
+            $order->price;
+            $order->seat_id;
         
-        $order->save();
+            $order->save();
+            return true;
+        }
+        
+    }
+
+    public function store(Request $request)
+    {
+        if ($request->id == null)
+        {
+            $order = new order;
+            $order->date;
+            $order->client;
+            $order->price;
+            $order->seat_id;
+            
+            $order->save();
+            return $order;
+        }
+    }
+
+    public function show($id)
+    {
+        $order = order::find($id);
+        return $sellers;
+    }
+
+    public function destroy($id)
+    {
+        order::destroy($id);
         return true;
     }
 }   
