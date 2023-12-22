@@ -4,13 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class clientController extends Controller
+class ClientController extends Controller
 {
     public function index()
     {
-        $client = clientResources::collection(client::all());
+        $Client = ClientResources::collection(Client::all());
 
-        return $client;
+        return $Client;
     }
 
     public function create()
@@ -23,18 +23,14 @@ class clientController extends Controller
         //
     }
 
-    public function update(Request $request, client $client)
+    public function update(Request $request, Client $Client)
     {
         if($request->id==null)
         {
-            $client = new client;
-        
-            $client->date;
-            $client->client_id;
-            $client->price;
-            $client->seat_id;
-        
-            $client->save();
+            $Client = new Client;
+            $Client->tel;
+            
+            $Client->save();
             return true;
         }
         
@@ -44,26 +40,23 @@ class clientController extends Controller
     {
         if ($request->id == null)
         {
-            $client = new client;
-            $client->date;
-            $client->client;
-            $client->price;
-            $client->seat_id;
+            $Client = new Client;
+            $Client->tel;
             
-            $client->save();
-            return $client;
+            $Client->save();
+            return $Client;
         }
     }
 
     public function show($id)
     {
-        $client = client::find($id);
-        return $sellers;
+        $Client = Client::find($id);
+        return $Client;
     }
 
     public function destroy($id)
     {
-        client::destroy($id);
+        Client::destroy($id);
         return true;
     }
 }

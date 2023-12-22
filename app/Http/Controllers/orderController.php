@@ -4,13 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class orderController extends Controller
+class OrderController extends Controller
 {
     public function index()
     {
-        $order = orderResources::collection(order::all());
+        $Order = OrderResources::collection(Order::all());
 
-        return $order;
+        return $Order;
     }
 
     public function create()
@@ -23,18 +23,18 @@ class orderController extends Controller
         //
     }
 
-    public function update(Request $request, order $order)
+    public function update(Request $request, Order $Order)
     {
         if($request->id==null)
         {
-            $order = new order;
+            $Order = new Order;
         
-            $order->date;
-            $order->client_id;
-            $order->price;
-            $order->seat_id;
+            $Order->date;
+            $Order->client_id;
+            $Order->price;
+            $Order->seat_id;
         
-            $order->save();
+            $Order->save();
             return true;
         }
         
@@ -44,26 +44,26 @@ class orderController extends Controller
     {
         if ($request->id == null)
         {
-            $order = new order;
-            $order->date;
-            $order->client;
-            $order->price;
-            $order->seat_id;
+            $Order = new Order;
+            $Order->date;
+            $Order->client;
+            $Order->price;
+            $Order->seat_id;
             
-            $order->save();
-            return $order;
+            $Order->save();
+            return $Order;
         }
     }
 
     public function show($id)
     {
-        $order = order::find($id);
+        $Order = Order::find($id);
         return $sellers;
     }
 
     public function destroy($id)
     {
-        order::destroy($id);
+        Order::destroy($id);
         return true;
     }
 }   

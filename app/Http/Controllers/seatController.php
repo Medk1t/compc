@@ -4,13 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class seatController extends Controller
+class SeatController extends Controller
 {
     public function index()
     {
-        $seat = seatResources::collection(seat::all());
+        $Seat = SeatResources::collection(Seat::all());
 
-        return $seat;
+        return $Seat;
     }
 
     public function create()
@@ -23,18 +23,18 @@ class seatController extends Controller
         //
     }
 
-    public function update(Request $request, seat $seat)
+    public function update(Request $request, Seat $Seat)
     {
         if($request->id==null)
         {
-            $seat = new seat;
+            $Seat = new Seat;
         
-            $seat->date;
-            $seat->client_id;
-            $seat->price;
-            $seat->seat_id;
+            $Seat->date;
+            $Seat->client_id;
+            $Seat->price;
+            $Seat->Seat_id;
         
-            $seat->save();
+            $Seat->save();
             return true;
         }
         
@@ -44,26 +44,26 @@ class seatController extends Controller
     {
         if ($request->id == null)
         {
-            $seat = new seat;
-            $seat->date;
-            $seat->client;
-            $seat->price;
-            $seat->seat_id;
+            $Seat = new Seat;
+            $Seat->date;
+            $Seat->client;
+            $Seat->price;
+            $Seat->Seat_id;
             
-            $seat->save();
-            return $seat;
+            $Seat->save();
+            return $Seat;
         }
     }
 
     public function show($id)
     {
-        $seat = seat::find($id);
+        $Seat = Seat::find($id);
         return $sellers;
     }
 
     public function destroy($id)
     {
-        seat::destroy($id);
+        Seat::destroy($id);
         return true;
     }
 }
